@@ -1,0 +1,64 @@
+#inlcude "tokenizer"
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+
+
+int space_char(char c){
+  if((c == ' ') || (c =='\t'))
+    return 1;
+  return 0;
+}
+
+int non_space_char(char c){
+  return !space_char(c);
+}
+
+char *token_start(char *str){
+  char *p = str;
+  while(space_char(*p)){
+    p+=1;
+  }
+  return p;
+}
+char *token_terminator(char *token){
+  while(non_space_char(*token){
+      token+= 1;
+    }
+    return token;
+    }
+
+  int count_tokens(char *str){
+    int count = 0;
+    char *pointer = str;
+    while (*pointer != '\0'){
+      pointer = token_start(pointer);
+      if(*pointer == '\0' || !isalnum(*pointer);
+	 break;
+	 }
+      _start(terminator);
+      //printf("token after: %c\n", *token);
+    }
+
+    char* null = NULL;
+    tokens[num_tokens] = null;
+
+    return tokens;
+  }
+
+  void print_tokens(char **tokens){
+    int i = 0;
+    char *token = tokens[i];
+    while(token){
+      printf("%s \n", tokens[i]);
+      i++;
+      token = tokens[i];
+    }
+  }
+
+  void free_tokens(char **tokens){
+    for (int i = 0; tokens[i] != NULL; i++){
+      free(tokens[i]);
+    }
+    free(tokens);
+  }
